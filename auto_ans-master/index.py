@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 
 @app.route('/distribution/<people>')
-def index():
-        people = request.form.get('about').split(',')
+def index(people):
+        people = people.split(',')
         return render_template('auto_answer.html', people=people)
 
 
