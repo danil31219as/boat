@@ -5,14 +5,9 @@ from flask import request
 app = Flask(__name__)
 
 
-@app.route('/distribution', methods=['GET', 'POST'])
+@app.route('/distribution/<people>')
 def index():
-
-    if request.method == 'GET':
-        return render_template('answer.html')
-
-    elif request.method == 'POST':
-        people = request.form.get('about').split(', ')
+        people = request.form.get('about').split(',')
         return render_template('auto_answer.html', people=people)
 
 
